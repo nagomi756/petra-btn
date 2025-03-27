@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ペトラナイトメアボタン</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div id="header-container">
+            <h1>ペトラナイトメアボタン</h1>
+            <div id="button-container">
+                <button id="randomButton">ランダム再生</button>
+                <label for="volumeControl" id="volumeLabel">音量調整</label>
+                <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1">
+            </div>
+        </div>
+
+        <div class="button-container" id="buttonList"></div>
+    </div>
+
+    <script>
+        // 現在再生中の音声を保持する変数
+        let currentAudio = null;
+
+        // ボタンのデータを配列で定義
+        const buttonsData = [
+            { name: "あぁよ", soundFile: "sounds/あぁよ.wav" },
+            { name: "あよよよよよ", soundFile: "sounds/あよよよよよ.wav" },
+            { name: "あよ", soundFile: "sounds/あよ.wav" },
+            { name: "おんぎゃーーーー！！！", soundFile: "sounds/おんぎゃーーーー！！！.wav" },
+            { name: "ｲﾃﾃﾞｷﾒｰｼｭ", soundFile: "sounds/ｲﾃﾃﾞｷﾒｰｼｭ.wav" },
+            { name: "かんぱーい", soundFile: "sounds/かんぱーい.wav" },
+            { name: "げっぷでる", soundFile: "sounds/げっぷでる.wav" },
+            { name: "シンフォギア！！！", soundFile: "sounds/シンフォギア！！！.wav" },
+            { name: "どrrrrr", soundFile: "sounds/どrrrrr.wav" },
+            { name: "ドッスン", soundFile: "sounds/ドッスン.wav" },
+            { name: "ドッスンもどき", soundFile: "sounds/ドッスンもどき.wav" },
+            { name: "なにやってんだおめえ", soundFile: "sounds/なにやってんだおめえ.wav" },
+            { name: "ユニコーーーーーーン！", soundFile: "sounds/ユニコーーーーーーン！.wav" },
+            { name: "ユニコーンの方配信閉じて", soundFile: "sounds/ユニコーンの方配信閉じて.wav" },
+            { name: "よ～", soundFile: "sounds/よ～.wav" },
+            { name: "ﾜﾀｸｼは牛じゃねえ", soundFile: "sounds/ﾜﾀｸｼは牛じゃねえ.wav" },
+            { name: "牛(発情期)", soundFile: "sounds/牛(発情期).wav" },
+            { name: "合法種付おじさん", soundFile: "sounds/合法種付おじさん.wav" },
+            { name: "初見様いらっしゃいませ", soundFile: "sounds/初見様いらっしゃいませ.wav" },
+            { name: "喋れる歌える笑かせる", soundFile: "sounds/喋れる歌える笑かせる.wav" },
+            { name: "民意なんでえ", soundFile: "sounds/民意なんでえ.wav" },
+            { name: "鳴き声", soundFile: "sounds/鳴き声.wav" },
+            { name: "お手を拝借", soundFile: "sounds/お手を拝借.wav" }
+        ];
+
+        // ボタンを五十音順で並べ替える
+        buttonsData.sort((a, b) => a.name.localeCompare(b.name));
+
+        // ボタンを動的に生成
+        const buttonList = document.getElementById('buttonList');
+        
+        buttonsData.forEach(button => {
+            const btn = document.createElement('button');
+            btn.classList.add('playButton');
+            btn.textContent = button.name;
+            btn.dataset.sound = button.soundFile;
+            btn.addEventListener('click', () => playSound(button.soundFile));
+            buttonList.appendChild(btn);
+        });
+
+        // 音声再生関数
+        function playSound(soundFile) {
+            // すでに音声が再生中なら停止
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0; // 再生位置を最初に戻す
+            }
+
+            // 新しい音声を作成して再生
+            currentAudio = new Audio(soundFile);
+            currentAudio.volume = document.getElementById('volumeControl').value; // 音量設定
+            currentAudio.play(); // 音声再生
+        }
+
+        // ランダム再生ボタンの処理
+        document.getElementById("randomButton").addEventListener("click", () => {
+            // ランダムな音声を選択
+            const randomSound = buttonsData[Math.floor(Math.random() * buttonsData.length)];
+            playSound(randomSound.soundFile);
+        });
+        
+        // 音量調整スライダーの処理
+        document.getElementById("volumeControl").addEventListener("input", (event) => {
+            if (currentAudio) {
+                currentAudio.volume = event.target.value; // 音量変更
+            }
+        });
+    </script>
+</body>
+</html>
