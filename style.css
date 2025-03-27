@@ -1,0 +1,85 @@
+/* 全体の背景色とレイアウト */
+body {
+    background-color: #E6E6FA; /* 薄い紫色 */
+    background-image: url("images/キメラ.png"); /* 透過画像 */
+    background-size: 20%; /* 背景画像を80%に縮小 */
+    background-position: center; /* 画像を中央に配置 */
+    background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
+    background-attachment: fixed; /* スクロールしても固定 */
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0; /* デフォルトの余白を削除 */
+}
+
+/* ページのコンテナ */
+.container {
+    max-width: 1200px; /* 最大幅を設定 */
+    margin: 0 auto; /* コンテンツを中央に配置 */
+    padding: 20px; /* 上下左右に余白を追加 */
+}
+
+/* タイトルとランダム再生ボタンの親要素 */
+#header-container {
+    text-align: left; /* 左寄せ */
+    margin-left: 20px; /* 左に余白を追加 */
+    margin-top: 20px; /* 上に余白を追加 */
+}
+
+/* タイトルのデザイン */
+h1 {
+    font-size: 3em; /* フォントサイズを大きく */
+    color: #7213b6; /* 濃い紫色 */
+    margin-bottom: 20px; /* タイトルとボタンの間に余白を追加 */
+}
+
+/* ランダム再生ボタンのデザイン */
+#randomButton {
+    background-color: #FFD700; /* ゴールド */
+    color: black;
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px; /* 上に少し余白を追加 */
+    margin-bottom: 30px; /* 下に余白を追加 */
+    margin-right: 30px; /* 右に余白を追加 */
+}
+
+#randomButton:hover {
+    opacity: 0.8;
+}
+
+/* ボタンコンテナ */
+.button-container {
+    display: flex;
+    flex-wrap: wrap;  /* 行ごとに並べる */
+    gap: 10px;
+    margin-left: 20px;
+}
+
+/* 再生ボタンのデザイン */
+.playButton {
+    background-color: #c992fd; /* 紫色 */
+    color: white;
+    font-size: 1em;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* ホバー時のエフェクト */
+.playButton:hover {
+    opacity: 0.8;
+}
+
+/* 音量ラベルのデザイン */
+#volumeLabel {
+    font-size: 1.5em;
+    color: #000000;
+    margin-right: 10px;
+    align-self: center;
+}
