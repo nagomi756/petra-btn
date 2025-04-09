@@ -1,85 +1,218 @@
 /* 全体の背景色とレイアウト */
 body {
-    background-color: #E6E6FA; /* 薄い紫色 */
-    background-image: url("images/キメラ.png"); /* 透過画像 */
-    background-size: 20%; /* 背景画像を80%に縮小 */
+    background-color: #E6E6FA; /* 薄い紫色の背景 */
+    background-image: url("images/キメラ.png"); /* 透過画像の背景を設定 */
+    background-size: 20%; /* 背景画像を20%の大きさに縮小 */
     background-position: center; /* 画像を中央に配置 */
-    background-repeat: no-repeat; /* 画像の繰り返しを防ぐ */
-    background-attachment: fixed; /* スクロールしても固定 */
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0; /* デフォルトの余白を削除 */
+    background-repeat: no-repeat; /* 画像を繰り返さない */
+    background-attachment: fixed; /* スクロールしても背景画像は固定 */
+    font-family: Arial, sans-serif; /* フォントをArialに設定 */
+    text-align: center; /* テキストを中央揃え */
+    margin: 0; /* ページのデフォルトの余白を削除 */
 }
 
 /* ページのコンテナ */
 .container {
-    max-width: 1200px; /* 最大幅を設定 */
+    max-width: 1200px; /* 最大幅を1200pxに設定 */
     margin: 0 auto; /* コンテンツを中央に配置 */
-    padding: 20px; /* 上下左右に余白を追加 */
+    padding: 20px; /* コンテナの内側に20pxの余白を追加 */
 }
 
 /* タイトルとランダム再生ボタンの親要素 */
 #header-container {
-    text-align: left; /* 左寄せ */
-    margin-left: 20px; /* 左に余白を追加 */
-    margin-top: 20px; /* 上に余白を追加 */
+    text-align: left; /* タイトルを左寄せ */
+    margin-left: 20px; /* 左に20pxの余白を追加 */
+    margin-top: 20px; /* 上に20pxの余白を追加 */
 }
 
 /* タイトルのデザイン */
 h1 {
-    font-size: 3em; /* フォントサイズを大きく */
-    color: #7213b6; /* 濃い紫色 */
-    margin-bottom: 20px; /* タイトルとボタンの間に余白を追加 */
+    font-size: 3em; /* タイトルのフォントサイズを3倍に設定 */
+    color: #7213b6; /* 濃い紫色に設定 */
+    margin-bottom: 20px; /* タイトルとボタンの間に20pxの余白を追加 */
 }
 
 /* ランダム再生ボタンのデザイン */
 #randomButton {
-    background-color: #FFD700; /* ゴールド */
-    color: black;
-    font-weight: bold;
-    font-size: 1.5em;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    margin-top: 10px; /* 上に少し余白を追加 */
-    margin-bottom: 30px; /* 下に余白を追加 */
-    margin-right: 30px; /* 右に余白を追加 */
+    background-color: #FFD700; /* ボタンの背景色をゴールドに設定 */
+    color: black; /* ボタンの文字色を黒に設定 */
+    font-weight: bold; /* 文字を太字に設定 */
+    font-size: 1.5em; /* フォントサイズを1.5倍に設定 */
+    padding: 15px 30px; /* ボタン内に余白を追加 */
+    border: none; /* ボタンの境界線を削除 */
+    border-radius: 10px; /* ボタンの角を丸く設定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+    margin-top: 10px; /* 上に10pxの余白を追加 */
+    margin-bottom: 30px; /* 下に30pxの余白を追加 */
+    margin-right: 30px; /* 右に30pxの余白を追加 */
 }
 
+/* ランダム再生ボタンのホバー時のエフェクト */
 #randomButton:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* ホバー時に透明度を80%に設定 */
 }
 
-/* ボタンコンテナ */
+/* ボタンコンテナのスタイル */
 .button-container {
-    display: flex;
+    display: flex; /* フレックスボックスで配置 */
     flex-wrap: wrap;  /* 行ごとに並べる */
-    gap: 10px;
-    margin-left: 20px;
+    gap: 10px; /* ボタン間に10pxの隙間を追加 */
+    margin-left: 20px; /* 左に20pxの余白を追加 */
 }
 
 /* 再生ボタンのデザイン */
 .playButton {
-    background-color: #c992fd; /* 紫色 */
-    color: white;
-    font-size: 1em;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
+    background-color: #c992fd; /* 紫色の背景 */
+    color: white; /* 白い文字 */
+    font-size: 1em; /* フォントサイズを標準に設定 */
+    padding: 8px 16px; /* ボタン内に余白を追加 */
+    border: none; /* ボタンの境界線を削除 */
+    border-radius: 10px; /* ボタンの角を丸く設定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+    transition: 0.3s; /* ボタンのホバー時にスムーズに変化 */
 }
 
-/* ホバー時のエフェクト */
+/* 再生ボタンのホバー時のエフェクト */
 .playButton:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* ホバー時に透明度を80%に設定 */
 }
 
 /* 音量ラベルのデザイン */
 #volumeLabel {
-    font-size: 1.5em;
-    color: #000000;
-    margin-right: 10px;
-    align-self: center;
+    font-size: 1.5em; /* ラベルのフォントサイズを1.5倍に設定 */
+    color: #000000; /* ラベルの文字色を黒に設定 */
+    margin-right: 10px; /* ラベルとスライダーの間に10pxの余白 */
+    align-self: center; /* ラベルを縦方向に中央揃え */
+}
+
+/* 音量調整スライダーのデザイン */
+#volumeControl {
+    width: 20%; /* スライダーの幅を20%に設定 */
+    margin-bottom: 30px; /* スライダーとボタンの間に30pxの余白を追加 */
+}
+
+/* タブのデザイン */
+.tab {
+    display: inline-block; /* タブをインラインブロックで配置 */
+    padding: 10px 20px; /* タブ内に余白を追加 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+    background-color: #eee; /* タブの背景色を薄い灰色に設定 */
+    margin-right: 5px; /* タブの右側に5pxの隙間 */
+    border-radius: 5px 5px 0 0; /* 上部の角を丸く設定 */
+}
+
+/* アクティブなタブのデザイン */
+.tab.active {
+    background-color: #fff; /* アクティブなタブの背景色を白に設定 */
+    border-bottom: 2px solid white; /* 下の境界線を白に設定 */
+}
+
+/* タブのコンテンツ */
+.tab-content {
+    display: none; /* デフォルトで非表示 */
+    padding: 20px; /* コンテンツに20pxの余白を追加 */
+    background-color: #fff; /* コンテンツの背景色を白に設定 */
+    border: 1px solid #ccc; /* 枠線を薄い灰色に設定 */
+    border-top: none; /* 上部の枠線を削除 */
+}
+
+/* アクティブなタブコンテンツの表示 */
+.tab-content.active {
+    display: block; /* アクティブなタブコンテンツを表示 */
+}
+
+/* 音声リストとプレイリストのレイアウト */
+.audio-layout {
+    display: flex; /* フレックスボックスで横並び */
+    justify-content: space-between; /* コンテンツ間にスペースを均等に配置 */
+}
+
+/* 音声リストのデザイン */
+.audio-list,
+.playlist {
+    width: 45%; /* リストの幅を45%に設定 */
+    height: 300px; /* 高さを300pxに設定 */
+    overflow-y: auto; /* 内容が溢れる場合は縦スクロールを追加 */
+    border: 1px solid #ccc; /* 枠線を薄い灰色に設定 */
+    padding: 10px; /* 内側に余白を追加 */
+    border-radius: 8px; /* 角を丸く設定 */
+    background-color: #f9f9f9; /* 背景色を薄い灰色に設定 */
+}
+
+/* 音声アイテムのデザイン */
+.audio-item,
+.playlist-item {
+    margin: 5px 0; /* アイテム間に5pxの余白を追加 */
+    display: flex; /* フレックスボックスで横並び */
+    justify-content: space-between; /* アイテム間にスペースを均等に配置 */
+    align-items: center; /* アイテムを縦方向に中央揃え */
+    background-color: #fff; /* アイテムの背景色を白に設定 */
+    padding: 5px; /* アイテム内に余白を追加 */
+    border-radius: 5px; /* アイテムの角を丸く設定 */
+}
+
+/* プレイリストアイテムの削除ボタン */
+.playlist-item button {
+    margin-left: 5px; /* ボタンとアイテムの間に5pxの隙間 */
+    background-color: red; /* ボタンの背景色を赤に設定 */
+    color: white; /* ボタンの文字色を白に設定 */
+    border: none; /* ボタンの境界線を削除 */
+    border-radius: 4px; /* ボタンの角を丸く設定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+    padding: 2px 5px; /* ボタン内に少し余白を追加 */
+}
+
+/* プレイリストアイテムの移動ボタン */
+.playlist-item .move-btn {
+    background-color: #5a6fcc; /* 移動ボタンの背景色を紫に設定 */
+    margin-left: 0; /* 左側の余白を削除 */
+}
+
+/* ボタングループのレイアウト */
+.button-group {
+    display: flex; /* フレックスボックスで横並び */
+    gap: 5px; /* ボタン間に5pxの隙間 */
+    margin-left: auto; /* グループを右寄せ */
+}
+
+/* プレイリストアイテムのリスト */
+#playlistItems {
+    display: flex; /* フレックスボックスで縦並び */
+    flex-direction: column; /* アイテムを縦方向に配置 */
+}
+
+/* プレイリストの全削除ボタン */
+#clearPlaylistBtn {
+    display: block; /* ボタンをブロック表示に設定 */
+    margin: 20px auto 0; /* 上部に20px、下部に余白を追加 */
+    padding: 10px 20px; /* ボタン内に余白を追加 */
+    font-size: 16px; /* フォントサイズを16pxに設定 */
+    border: none; /* ボタンの境界線を削除 */
+    background-color: #000000; /* 背景色を紫に設定 */
+    color: white; /* 文字色を白に設定 */
+    border-radius: 8px; /* 角を丸く設定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+}
+
+/* プレイリストの全削除ボタンホバー時のエフェクト */
+#clearPlaylistBtn:hover {
+    opacity: 0.8; /* ホバー時に透明度を80%に設定 */
+}
+
+/* プレイリストの再生・停止ボタン */
+#playSequenceBtn {
+    display: block; /* ボタンをブロック表示に設定 */
+    margin: 20px auto 0; /* 上部に20px、下部に余白を追加 */
+    padding: 10px 20px; /* ボタン内に余白を追加 */
+    font-size: 16px; /* フォントサイズを16pxに設定 */
+    border: none; /* ボタンの境界線を削除 */
+    background-color: #4CAF50;
+    color: white; /* 文字色を白に設定 */
+    border-radius: 8px; /* 角を丸く設定 */
+    cursor: pointer; /* カーソルをポインタに設定 */
+}
+
+/* プレイリストの再生・停止ボタンホバー時のエフェクト */
+#playSequenceBtn:hover {
+    opacity: 0.8; /* ホバー時に透明度を80%に設定 */
 }
